@@ -11,10 +11,11 @@ public static void main(String[] agrs) {
 		System.out.println("Pick a number between 1-100");
 		String userInput = scanner.nextLine();
 		Integer convertedInput = Integer.parseInt(userInput);
-		Integer winCondition = (int) (Math.random() * 10 + 1);
+		Integer winCondition = (int) (Math.random() * 100 + 1);
 		
 		int i = 0;
 		while(i < 4) {
+
 			if(convertedInput == winCondition) {
 				break;	
 			}
@@ -34,7 +35,6 @@ public static void main(String[] agrs) {
 				
 			else if (convertedInput < winCondition) {
 				i++;
-
 				System.out.println(convertedInput + " is Wrong guess Lower!");
 				userInput = scanner.nextLine();
 				convertedInput = Integer.parseInt(userInput);
