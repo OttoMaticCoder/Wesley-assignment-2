@@ -18,45 +18,28 @@ public static void main(String[] agrs) {
 
 			if(convertedInput == winCondition) {
 				break;	
-			}
-			
+			}	
 			else if (convertedInput < 1 || convertedInput > 100 ) {
-				convertedInput = collectInput(scanner, "Invalid Input, No Chance used. Try Again: ", convertedInput);
-//				System.out.println("Invalid Input, No Chance used. Try Again: ");
-//				userInput = scanner.nextLine();
-//				convertedInput = Integer.parseInt(userInput);
+				convertedInput = InputCollector.collectInput(scanner, convertedInput,
+						"Invalid Input, No Chance used. Try Again: ");
 			}
-			
 			else if(convertedInput > winCondition) {
 				i++;
-				convertedInput = collectInput(scanner, convertedInput + " is Wrong guess Lower!", convertedInput);
-//				System.out.println(convertedInput + " is Wrong guess Lower!");
-//				userInput = scanner.nextLine();
-//				convertedInput = Integer.parseInt(userInput);
-			}
-				
+				convertedInput = InputCollector.collectInput(scanner, convertedInput,
+						convertedInput + " is Wrong guess Lower!");
+			}	
 			else if (convertedInput < winCondition) {
 				i++;
-				convertedInput = collectInput(scanner, convertedInput + " is wrong guess Higher", convertedInput);	
-//				System.out.println(convertedInput + " is Wrong guess Lower!");
-//				userInput = scanner.nextLine();
-//				convertedInput = Integer.parseInt(userInput);
-				}
+				convertedInput = InputCollector.collectInput(scanner, convertedInput,
+						convertedInput + " is wrong guess Higher");	
+			}	
 		}
 		
-		if(convertedInput == winCondition) {
+			if(convertedInput == winCondition) {
 			System.out.println("You Win!");
 			
-		} else {
+			} else {
 			System.out.println("You Lose! Winning Number was: " + winCondition);
+			}
 		}
-	}
-
-	private static Integer collectInput(Scanner scanner, String consoleMessage,  Integer convertedInput) {
-	String userInput;
-	System.out.println(consoleMessage);
-	userInput = scanner.nextLine();
-	convertedInput = Integer.parseInt(userInput);
-	return convertedInput;
-}
 }
