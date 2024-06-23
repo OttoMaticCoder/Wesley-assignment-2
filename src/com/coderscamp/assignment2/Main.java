@@ -21,23 +21,26 @@ public static void main(String[] agrs) {
 			}
 			
 			else if (convertedInput < 1 || convertedInput > 100 ) {
-				System.out.println("Invalid Input, No Chance used. Try Again: ");
-				userInput = scanner.nextLine();
-				convertedInput = Integer.parseInt(userInput);
+				convertedInput = collectInput(scanner, "Invalid Input, No Chance used. Try Again: ", convertedInput);
+//				System.out.println("Invalid Input, No Chance used. Try Again: ");
+//				userInput = scanner.nextLine();
+//				convertedInput = Integer.parseInt(userInput);
 			}
 			
 			else if(convertedInput > winCondition) {
 				i++;
-				System.out.println(convertedInput + " is Wrong guess Lower!");
-				userInput = scanner.nextLine();
-				convertedInput = Integer.parseInt(userInput);
+				convertedInput = collectInput(scanner, convertedInput + " is Wrong guess Lower!", convertedInput);
+//				System.out.println(convertedInput + " is Wrong guess Lower!");
+//				userInput = scanner.nextLine();
+//				convertedInput = Integer.parseInt(userInput);
 			}
 				
 			else if (convertedInput < winCondition) {
 				i++;
-				System.out.println(convertedInput + " is Wrong guess Lower!");
-				userInput = scanner.nextLine();
-				convertedInput = Integer.parseInt(userInput);
+				convertedInput = collectInput(scanner, convertedInput + " is wrong guess Higher", convertedInput);	
+//				System.out.println(convertedInput + " is Wrong guess Lower!");
+//				userInput = scanner.nextLine();
+//				convertedInput = Integer.parseInt(userInput);
 				}
 		}
 		
@@ -48,4 +51,12 @@ public static void main(String[] agrs) {
 			System.out.println("You Lose! Winning Number was: " + winCondition);
 		}
 	}
+
+	private static Integer collectInput(Scanner scanner, String consoleMessage,  Integer convertedInput) {
+	String userInput;
+	System.out.println(consoleMessage);
+	userInput = scanner.nextLine();
+	convertedInput = Integer.parseInt(userInput);
+	return convertedInput;
+}
 }
