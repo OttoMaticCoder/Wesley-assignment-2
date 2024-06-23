@@ -36,7 +36,7 @@ public static void main(String[] agrs) {
 		}
 		
 			if(convertedInput == winCondition) {
-			System.out.println("You Win!");
+			System.out.println("You Win! Number was " + convertedInput);
 			
 			} else {
 			System.out.println("You Lose! Winning Number was: " + winCondition);
