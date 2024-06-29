@@ -4,25 +4,29 @@ import java.util.Scanner;
 
 public class GameLoop {
 	
-	public void GuessGame(Integer convertedInput, Integer winCondition, Scanner scanner) {
+	public void GuessGame(Integer convertedInput, Integer winCondition,Integer chances, Scanner scanner) {
 		
-		int i = 0;
-		while(i < 4) {
+		
+		while(true) {
 
-			if(convertedInput == winCondition) {
-				break;	
-			}	
-			else if (convertedInput < 1 || convertedInput > 100 ) {
+			 if (convertedInput < 1 || convertedInput > 100 ) {
 				convertedInput = InputCollector.collectInput(scanner, convertedInput,
 						"Invalid Input, No Chance used. Try Again: ");
 			}
+			else if(convertedInput == winCondition) {
+				break;	
+			}
+			else if(chances == 4) {
+				break;
+			}
+			
 			else if(convertedInput > winCondition) {
-				i++;
+				chances++;
 				convertedInput = InputCollector.collectInput(scanner, convertedInput,
 						convertedInput + " is Wrong guess Lower!");
 			}	
 			else if (convertedInput < winCondition) {
-				i++;
+				chances++;
 				convertedInput = InputCollector.collectInput(scanner, convertedInput,
 						convertedInput + " is wrong guess Higher");	
 			}	
