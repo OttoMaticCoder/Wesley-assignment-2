@@ -10,12 +10,10 @@ public class GameLoop {
 	private int winningNumber;
 	private boolean gameWon;
 	
-	
 	public GameLoop(Integer minimum, Integer maximum,Integer chanceCount) {
 		this.minimum = minimum;
 		this.maximum = maximum;
 		this.guessAmount = chanceCount;
-		
 		generateRandomNumber();
 		
 	}
@@ -47,20 +45,17 @@ public class GameLoop {
                         gameWon = true;
                         System.out.println("You Win");
                     }
-                    
                     else if (guessesUsed == guessAmount) {
                     	System.out.println("You Lose");
                     }
-
                     else if (convertedInput < winningNumber) {
                         System.out.println("Guess is too low...Try a higher number...");
                     } else {
                         System.out.println("Guess is too high..Try a lower number");
                     }
-
                 }
             }
         }
-}
+    }
 	
 
